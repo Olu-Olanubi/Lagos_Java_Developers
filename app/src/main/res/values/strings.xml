@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">LagosJavaDevelopers</string>
+    <string name="welcome_note">This app helps you find Java Developers in Lagos</string>
+    <string name="load_list">Load List</string>
+    <string name="exit">Exit</string>
+</resources>
