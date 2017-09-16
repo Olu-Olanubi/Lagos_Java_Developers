@@ -50,7 +50,7 @@ public class loadList extends AppCompatActivity {
         sendRequest();
     }
 
-    //edit Starts Here:
+
     public void sendRequest() {
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.VISIBLE);
@@ -79,19 +79,16 @@ public class loadList extends AppCompatActivity {
                                 //create a SourceItem object and give it the values from the JSONObject
                                 SourceItem sourceItem = new SourceItem(details.getString("login"), details.getString("avatar_url"), details.getString("url"));
 
-                               // profile_url = details.getString("url");
-                                //ProfileDetails.url = details.getString("url");
+
 
 
                                 //add sourceItem to sourceItemList
                                 sourceItemList.add(sourceItem);
 
-                                //Create a custom RecyclerAdapter object
-                                //Edot Text here--  mAdapter = new RecyclerAdapter(sourceItemList);
+                                //create a custom recyclerview object
                                 mAdapter = new RecyclerAdapter(sourceItemList, new RecyclerAdapter.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(SourceItem item) {
-                                        //Context context = View.getContext();
                                         ProfileDetails.url = item.getURL();
                                         Intent showDetails = new Intent(getApplicationContext(), ProfileDetails.class);
                                         startActivity(showDetails);
@@ -100,17 +97,6 @@ public class loadList extends AppCompatActivity {
                                 // Add mAdapter to RecyclerView
                                 mRecyclerView.setAdapter(mAdapter);
 
-
-                                //New Code
-                                //mAdapter.setOnItemClickListener(new OnItemClickListener() {
-                                //@Override
-                                //public void onItemClick(SourceItem item) {
-                                //Context context = mRecyclerView.getContext();
-                                //Intent showDetails= new Intent(context, ProfileDetails.class);
-                                //context.startActivity(showDetails);
-
-                                //}
-                                // });
                             }
 
                         } catch (JSONException e) {

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- This layout is responsible for creating the details of each user on the list -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_profile_details"
@@ -21,6 +23,7 @@
         android:layout_gravity="center"
          />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,11 +44,18 @@
         android:layout_marginBottom = "12dp"
         android:layout_gravity = "center"
         android:id = "@+id/details_profileURL"
+        android:autoLink="web"
         android:textStyle="italic"
         android:textColor = "@color/colorPrimaryDark"
         android:textSize = "20sp"
 
         />
+    <ProgressBar
+        android:id="@+id/progress_bar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:color = "@color/progressBarColor"/>
     <Button
         android:id = "@+id/shareButton"
         android:layout_width="wrap_content"
@@ -56,8 +66,9 @@
         android:padding="16dp"
         android:textColor = "@color/colorPrimaryDark"
         android:layout_gravity = "center_horizontal"
-        android:onClick ="Share"
+        android:onClick ="shareProfile"
         android:background = "#f0fff0"
+        android:visibility="invisible"
     />
 
 
