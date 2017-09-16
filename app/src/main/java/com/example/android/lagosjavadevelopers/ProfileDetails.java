@@ -26,17 +26,13 @@ public class ProfileDetails extends AppCompatActivity {
 
 
     ImageView user_image;
-    TextView user_name;
+    TextView user_name, user_URL, user_repos, user_followers,user_following, user_blog;
+    TextView name, profile,no_of_repos, no_of_followers, no_of_following, userBlog;
 
-    TextView user_URL;
     static String url, userName;
-    //static String userName;
-    String userImage, fullName, userLink, repo, followers, blog;
-    //String fullName;
-    //String userLink;
-    //String repo;
-    //String followers;
-    //String blog;
+
+    String userImage, fullName, userLink,repo, followers,following, blog;
+
     private ProgressBar progressBar1;
 
 
@@ -45,9 +41,20 @@ public class ProfileDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_details);
 
+        name = (TextView) (findViewById(R.id.name));
+        profile = (TextView) (findViewById(R.id.profile));
+        no_of_repos =(TextView) (findViewById(R.id.no_of_repos));
+        no_of_followers = (TextView) (findViewById(R.id.no_of_followers));
+        no_of_following = (TextView) (findViewById(R.id.no_of_following));
+        userBlog = (TextView) (findViewById(R.id.userBlog));
+
         user_image = (ImageView) (findViewById(R.id.details_image));
         user_name = (TextView) (findViewById(R.id.details_username));
         user_URL = (TextView) (findViewById(R.id.details_profileURL));
+        user_repos = (TextView) (findViewById(R.id.details_repos));
+        user_followers =(TextView) (findViewById(R.id.details_followers));
+        user_following = (TextView) (findViewById(R.id.details_following));
+        user_blog = (TextView) (findViewById(R.id.details_blog));
         setRequest();
 
     }
@@ -62,8 +69,14 @@ public class ProfileDetails extends AppCompatActivity {
                     // display response
                     @Override
                     public void onResponse(JSONObject reply) {
-                        //Hide ProgressBar after load completion
-                        progressBar1.setVisibility(View.INVISIBLE);
+                        //Hide ProgressBar after load completion and mke TextViews visible
+                        progressBar1.setVisibility(View.GONE);
+                        name.setVisibility(View.VISIBLE);
+                        profile.setVisibility(View.VISIBLE);
+                        no_of_repos.setVisibility(View.VISIBLE);
+                        no_of_followers.setVisibility(View.VISIBLE);
+                        no_of_following.setVisibility(View.VISIBLE);
+                        userBlog.setVisibility(View.VISIBLE);
 
                         try {
                             //Extract needed details from the JSONObject of the user details
@@ -71,13 +84,20 @@ public class ProfileDetails extends AppCompatActivity {
                             userImage = reply.getString("avatar_url");
                             fullName = reply.getString("name");
                             userLink = reply.getString("html_url");
-                            repo = reply.getString("public_repos");
-                            followers = reply.getString("followers");
+                            repo = String.valueOf(reply.getInt("public_repos"));
+                            followers = String.valueOf(reply.getInt("followers"));
+                            following = String.valueOf(reply.getInt("following"));
                             blog = reply.getString("blog");
+
 
                             //Assign these data to their respective views
                             user_name.setText(fullName);
                             user_URL.setText(userLink);
+
+                            user_repos.setText(repo);
+                            user_followers.setText(followers);
+                            user_following.setText(following);
+                            user_blog.setText(blog);
                             setImage(userImage);
 
                             //Make share button visible
@@ -115,7 +135,7 @@ public class ProfileDetails extends AppCompatActivity {
 
     //Method to share user profile
     public void shareProfile(View v) {
-        String shareBody = String.format("Check out this awesome developer at @%s, %s", userName, url);
+        String shareBody = String.format("Check out this awesome developer at @%s, %s", userName, userLink);
         Intent sharingIntent = new Intent();
         sharingIntent.setAction(Intent.ACTION_SEND);
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);

@@ -13,63 +13,213 @@
     android:paddingTop="16dp"
     tools:context="com.example.android.lagosjavadevelopers.ProfileDetails">
 
+    <ProgressBar
+        android:id="@+id/progress_bar1"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_marginLeft="120dp"
+        android:color="@color/buttonBorderColor" />
+
     <ImageView
         android:id="@+id/details_image"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop = "24dp"
-        android:layout_marginBottom = "12dp"
-        android:layout_weight = "1"
         android:layout_gravity="center"
-         />
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop = "12dp"
-        android:layout_marginBottom = "12dp"
-        android:id = "@+id/details_username"
-        android:layout_gravity = "center"
-        android:textStyle="bold"
-        android:textColor = "@color/colorPrimaryDark"
-        android:textSize = "24sp"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/paddingTopDown"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/paddingTopDown">
 
-        />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Name: "
+            android:textColor="@color/buttonBorderColor"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="normal"
+            android:visibility="invisible" />
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/details_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop = "12dp"
-        android:layout_marginBottom = "12dp"
-        android:layout_gravity = "center"
-        android:id = "@+id/details_profileURL"
-        android:autoLink="web"
-        android:textStyle="italic"
-        android:textColor = "@color/colorPrimaryDark"
-        android:textSize = "20sp"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/paddingTopDown"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/paddingTopDown">
 
-        />
-    <ProgressBar
-        android:id="@+id/progress_bar1"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Profile: "
+            android:textColor="@color/buttonBorderColor"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="normal"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/details_profileURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:color = "@color/progressBarColor"/>
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/paddingTopDown"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/paddingTopDown">
+
+        <TextView
+            android:id="@+id/no_of_repos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="No. of Repos: "
+            android:textColor="@color/buttonBorderColor"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="normal"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/details_repos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/paddingTopDown"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/paddingTopDown">
+
+        <TextView
+            android:id="@+id/no_of_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Followers: "
+            android:textColor="@color/buttonBorderColor"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="normal"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/details_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/paddingTopDown"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/paddingTopDown">
+
+        <TextView
+            android:id="@+id/no_of_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Following: "
+            android:textColor="@color/buttonBorderColor"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="normal"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/details_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/paddingTopDown"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/paddingTopDown">
+
+        <TextView
+            android:id="@+id/userBlog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Blog: "
+            android:textColor="@color/buttonBorderColor"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="normal"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/details_blog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/details_textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <Button
-        android:id = "@+id/shareButton"
+        android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop = "12dp"
-        android:layout_marginBottom="24dp"
-        android:text = "Share This Profile"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button"
+        android:onClick="shareProfile"
         android:padding="16dp"
-        android:textColor = "@color/colorPrimaryDark"
-        android:layout_gravity = "center_horizontal"
-        android:onClick ="shareProfile"
-        android:background = "#f0fff0"
-        android:visibility="invisible"
-    />
-
-
+        android:text="Share This Profile"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="invisible" />
 </LinearLayout>
+
+
+
+

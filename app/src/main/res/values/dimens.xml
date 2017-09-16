@@ -4,4 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="button_vertical_margin">48dp</dimen>
     <dimen name="listDividerHeight">2dp</dimen>
+    <dimen name="paddingTopDown">4dp</dimen>
+    <dimen name="details_textSize">16sp</dimen>
+
 </resources>
